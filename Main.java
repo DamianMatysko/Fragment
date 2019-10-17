@@ -9,7 +9,7 @@ public class Main {
         System.out.println(f1.toString());
         f1.extendFunction(-5);
         System.out.println(f1.toString());
-        System.out.println(f1.getRulValue());
+        System.out.println(f1.getRealValue());
 
         Fragment f2=new Fragment(7,28);
         f2.changeToBasicShape();
@@ -19,5 +19,8 @@ public class Main {
         Fragment f3=new Fragment(7,0);
         Fragment f4=f2.copy();
 
+
+        MainMath myMath = new MainMath();
+        Fragment f6=new MainMath.add;
     }
 }

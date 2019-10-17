@@ -39,7 +39,7 @@ public class Fragment {
     public void extendFunction(){
 
     }
-    public double getRulValue(){
+    public double getRealValue(){
         return 0;//todo
     }
     public void reverse(){
@@ -55,8 +55,8 @@ public class Fragment {
         return newFragment;
     }
     private int getTheLargestCommonDivsor(){
-        int absNummerator=Math.abs(numerator);
-        int absDenominator=Math.abs(denominator);
+        int absNummerator= MainMath.abs(numerator);
+        int absDenominator= MainMath.abs(denominator);
 
         int commonDividor=numerator<denominator?numerator<denominator;
         while (absNummerator%commonDividor !=0|| absDenominator%commonDividor!=0){
