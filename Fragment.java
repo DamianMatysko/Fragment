@@ -3,6 +3,7 @@ package sk.itsovy.matysko.projectfragment;
 public class Fragment {
     private int numerator;
     private int denominator;
+
     //generate
     public int getNumerator() {
         return numerator;
@@ -21,60 +22,85 @@ public class Fragment {
     }
 
     public Fragment(int numerator, int denominator) {
-        if (denominator==0)
-            denominator=1;
+        if (denominator == 0)
+            denominator = 1;
         this.numerator = numerator;
         this.denominator = denominator;
     }
-    public Fragment(Fragment other){//kopirovanie cez konstruktor
-        numerator=other.getNumerator();
-        denominator=other.getDenominator();
+
+    public Fragment(Fragment other) {//kopirovanie cez konstruktor
+        numerator = other.getNumerator();
+        denominator = other.getDenominator();
     }
 
 
-    public void changeToBasicShape(){
-        int commnDividisor=getTheLargestCommonDivsor();
+    public void changeToBasicShape() {
+        int commnDividisor = getTheLargestCommonDivsor();
+        numerator = numerator / commnDividisor;
+        denominator = denominator / commnDividisor;
+    }
 
+    public void extendFragment(int value) {
+        if (value != 0) {
+            numerator *= value;
+            denominator *= value;
+        }
     }
-    public void extendFunction(){
 
+    public double getRealValue() {
+        return (double)numerator/denominator;
     }
-    public double getRealValue(){
-        return 0;//todo
-    }
-    public void reverse(){
-        int temp=numerator;
-        numerator=denominator;
-        denominator=temp;
-    }
-    public void oposite(){
 
+    public void reverse() {
+        int temp = numerator;
+        numerator = denominator;
+        denominator = temp;
     }
-    public Fragment copy(){
-        Fragment newFragment=new Fragment(numerator, denominator);
+
+    public void oposite() {
+        numerator*=-1;
+    }
+
+    public Fragment copy() {
+        Fragment newFragment = new Fragment(numerator, denominator);
         return newFragment;
     }
-    private int getTheLargestCommonDivsor(){
-        int absNummerator= MainMath.abs(numerator);
-        int absDenominator= MainMath.abs(denominator);
 
-        int commonDividor=numerator<denominator?numerator<denominator;
-        while (absNummerator%commonDividor !=0|| absDenominator%commonDividor!=0){
-            commonDividor--;
+    private int getTheLargestCommonDivsor() {
+        /* if(numerator<denominator)
+              commonDivisor=numerator;
+           else
+              commonDivisor=denominator;  */
+
+        // namiesto if pouzijem ternarny operator
+        int absNumerator = Math.abs(numerator);
+        int absDenominator = Math.abs(denominator);
+
+        int commonDivisor = absNumerator < absDenominator ? absNumerator : absDenominator;
+        while (absNumerator % commonDivisor != 0 || absDenominator % commonDivisor != 0) {
+            commonDivisor--;
         }
-        return commonDividor;
+        return commonDivisor;
     }
-    public boolean isFragmentInBasicShape(){
-        if(getTheLargestCommonDivsor()==1){
+
+    public boolean isFragmentInBasicShape() {
+        if (getTheLargestCommonDivsor() == 1) {
             return true;
-        }else{
+        } else {
             return false;
         }
-
-        @Override
-        public String toString(){
-            return numerator +"/" +denominator;
-        }
     }
 
+    @Override
+    public String toString() {
+        return numerator + "/" + denominator;
+    }
+
+    public MixedNumber getMixedNumber() {
+        int value = numerator / denominator;
+        Fragment f = new Fragment(numerator % denominator, denominator);
+        return new MixedNumber(value, f);
+    }
 }
+
+

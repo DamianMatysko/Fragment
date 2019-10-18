@@ -25,30 +25,30 @@ public class MixedNumber {
         this.fragment = fragment;
     }
 
-    public MixedNumber(int number,int nominator,int denominator){
-        this.number=number;
-        this.fragment=new Fragment(nominator,denominator);
+    public MixedNumber(int number, int nominator, int denominator) {
+        this.number = number;
+        this.fragment = new Fragment(nominator, denominator);
     }
 
     @Override
-    public String toString(){
-        return number+" "+fragment.toString();
+    public String toString() {
+        return number + " " + fragment.toString();
     }
 
-    public Fragment convertToFragment(){
-        Fragment newFragment=new Fragment(number*fragment.getDenominator()+fragment.getNumerator(),fragment.getDenominator());
+    public Fragment convertToFragment() {
+        Fragment newFragment = new Fragment(number * fragment.getDenominator() + fragment.getNumerator(), fragment.getDenominator());
         return newFragment;
     }
 
-    public double getRealValue(){
-        return number+fragment.getRealValue();
+    public double getRealValue() {
+        return number + fragment.getRealValue();
     }
 
-    public MixedNumber getMixNumber(){
-        MixedNumber n=null;
-        int value= numerator/denumerator;
-                Fragment f=new Fragment(numerator%denumerator,denominator)
-        return new MixedNumber(value,f)
+    public MixedNumber getMixNumber() {
+        MixedNumber n = null;
+        int value = numerator / denumerator;
+        Fragment f = new Fragment(numerator % denumerator, denominator);
+        return new MixedNumber(value, f);
     }
 
 
