@@ -24,6 +24,6 @@ public class Main {
 
          */
         Bank b1 = new Bank();
-        System.out.println(b1.convert(6.5, "TRY"));
+        System.out.println(b1.convert(120,"CHF"));
     }
 }
