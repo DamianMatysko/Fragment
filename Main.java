@@ -2,6 +2,7 @@ package sk.itsovy.matysko.projectfragment;
 
 public class Main {
     public static void main(String[] args) {
+        /*
         Fragment f1 = new Fragment(32, 48);
         System.out.println(f1.toString());
         f1.changeToBasicShape();
@@ -20,5 +21,9 @@ public class Main {
         Fragment f4 = f2.copy();
 
         Fragment f5 = new Fragment(f1);
+
+         */
+        Bank b1 = new Bank();
+        System.out.println(b1.convert(6.5, "TRY"));
     }
 }

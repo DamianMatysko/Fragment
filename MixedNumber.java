@@ -23,11 +23,13 @@ public class MixedNumber {
     public MixedNumber(int number, Fragment fragment) {
         this.number = number;
         this.fragment = fragment;
+        fragment.changeToBasicShape();
     }
 
-    public MixedNumber(int number, int nominator, int denominator) {
+    public MixedNumber(int number, int numerator, int denominator) {
         this.number = number;
-        this.fragment = new Fragment(nominator, denominator);
+        this.fragment = new Fragment(numerator, denominator);
+        this.fragment.changeToBasicShape();
     }
 
     @Override
@@ -44,12 +46,13 @@ public class MixedNumber {
         return number + fragment.getRealValue();
     }
 
+    /*
     public MixedNumber getMixNumber() {
         MixedNumber n = null;
         int value = numerator / denumerator;
         Fragment f = new Fragment(numerator % denumerator, denominator);
         return new MixedNumber(value, f);
     }
-
+*/
 
 }
